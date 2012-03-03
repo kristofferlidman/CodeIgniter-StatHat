@@ -1,17 +1,13 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed'); 
 /**
- * @copyright 2012, iDenta labs
+ * CodeIgniter-StatHat v1.0
+ * @see https://github.com/identa/CodeIgniter-StatHat
  * @author Kristoffer Lidman
- * @link http://identa.se
+ * @link http://www.kristofferlidman.se
  */
 class Stathat {
-    var $CI;
-
-    function Stathat()
-	{
-        $this->CI =& get_instance();
-	}
 	
+	// Make request
 	function do_post_request($url, $data, $optional_headers = null)
 	{
 		$params = array('http' => array(
@@ -32,7 +28,8 @@ class Stathat {
 		}
 		return $response;
 	}
-
+	
+	// Make async request
 	function do_async_post_request($url, $params)
 	{
 		foreach($params as $key => &$val) {
@@ -54,6 +51,7 @@ class Stathat {
 		fclose($fp);
 	}
 
+	// StatHat functions
 	function stathat_count($stat_key, $user_key, $count)
 	{
 		return $this->do_async_post_request("http://api.stathat.com/c", array('key' => $stat_key, 'ukey' => $user_key, 'count' => $count));
@@ -94,4 +92,5 @@ class Stathat {
 		return $this->do_post_request("http://api.stathat.com/ez", "email=$email&stat=$stat_name&value=$value");
 	}
 }
-?>
+
+/* End of file stathat.php */
