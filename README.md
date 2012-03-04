@@ -1,6 +1,7 @@
 ## What is this?
 CodeIgniter-StatHat is a library for CodeIgniter. This library makes it easy to interact with
-[StatHat](http://www.stathat.com), a tool to track statistics and events in your code.
+[StatHat](http://www.stathat.com), a tool to track statistics and events in your code. Will add
+more features as i play around with StatHat.
 
 ## Usage
 Start by adding Stathat.php to your application -> libraries folder. After that, load
